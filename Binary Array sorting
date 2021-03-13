@@ -1,0 +1,39 @@
+PROBLEM: N = 5
+         A[] = {1,0,1,1,0}
+Output: 0 0 1 1 1
+
+
+SOLUTION:
+
+vector<int> SortBinaryArray(vector<int> binArray)
+{
+    
+    int n=binArray.size();
+    int first=0, last=(n-1);
+    while(first<=last)
+    {
+        if((binArray[first]==1)&&(binArray[last]==0)){
+            swap(binArray[first], binArray[last]);
+            first++;
+            last--;
+            
+        }
+        else if((binArray[first]==0)&&(binArray[last]==1)){
+            first++;
+            last--;
+            
+        }
+        else if((binArray[first]==0)&&(binArray[last]==0)){
+            first++;
+            
+        }
+        else
+        {
+            last--;
+        }
+    }
+    return binArray;
+}
+
+
+
